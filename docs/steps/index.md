@@ -63,11 +63,14 @@ This project follows a TDD and incremental refactoring approach:
    - Error tracking and timestamps
    - Mark methods (MarkRunning, MarkCompleted, MarkFailed)
 
-### Next Steps
-
-10. Thread Safety (Mutexes)
-11. Worker Pool (Channels & Goroutines)
-12. Queue Orchestration (Async Processing)
+10. [Worker Pool & Thread Safety](./step10-worker-pool.md)
+   - Worker pool with goroutines
+   - Channels for job queue
+   - Async job submission
+   - Graceful shutdown (context cancellation, WaitGroup)
+   - Race condition discovery
+   - Thread safety with sync.RWMutex
+   - Concurrent map access protection
 
 ## Design Principles
 
@@ -99,11 +102,13 @@ This project follows a TDD and incremental refactoring approach:
 - time.Time and time.Duration
 - Exponential backoff
 - Retry logic
-
-## Coming Soon
-
-- sync.Mutex and sync.RWMutex
-- Goroutines
-- Channels
-- Worker pools
-- Concurrency patterns
+- Goroutines (concurrent execution)
+- Channels (communication between goroutines)
+- Buffered channels
+- Select statement
+- sync.WaitGroup (waiting for goroutines)
+- sync.RWMutex (read-write mutex)
+- Worker pool pattern
+- Race detector (`go test -race`)
+- Graceful shutdown patterns
+- Thread safety and concurrent map access
